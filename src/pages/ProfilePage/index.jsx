@@ -86,11 +86,14 @@ export default function ProfilePage() {
 				{fields.map((field, index) => {
 					return renderBlock(field, index);
 				})}
-				{fields.length > 0 && (
-					<div className='profile-page-footer'>
+
+				<div className='profile-page-footer'>
+					{fields.length > 0 ? (
 						<Button type='submit'>Save Profile</Button>
-					</div>
-				)}
+					) : (
+						'Create at least one field'
+					)}
+				</div>
 			</form>
 		</div>
 	);

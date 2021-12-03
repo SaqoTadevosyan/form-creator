@@ -4,12 +4,12 @@ export const validateDatePattern = (pattern) => {
 		pattern[0] !== '/' &&
 		pattern[9] !== '/' &&
 		pattern.includes('yyyy') &&
-		pattern.includes('mm') &&
+		pattern.includes('MM') &&
 		pattern.includes('dd') &&
 		(pattern.match(/\//g) || []).length === 2 &&
 		!pattern.includes('//')
 	) {
 		return true;
 	}
-	return 'Please input valid format. Ex yyyy/mm/dd';
+	return 'Please input valid format. Ex yyyy/MM/dd';
 };

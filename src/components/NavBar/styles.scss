@@ -1,13 +1,17 @@
 .nav-bar {
     display: flex;
     justify-content: center;
-
+    margin-bottom: 30px;
     a {
         margin-right: 15px;
         text-decoration: none;
 
-        &:visited  {
+        &:visited {
             color: inherit;
         }
+    }
+
+    &-active-link {
+        color: rgb(24, 144, 255) !important;
     }
 }

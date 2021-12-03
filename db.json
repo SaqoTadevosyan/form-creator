@@ -1,5 +1,27 @@
 {
-  "fields": [],
+  "fields": [
+    {
+      "details": {
+        "label": "text",
+        "required": true,
+        "visible": true,
+        "rows": "2"
+      },
+      "type": "TEXT",
+      "id": "4605b5bc-76e3-47e4-bded-43bd0e81734d"
+    },
+    {
+      "details": {
+        "label": "DOB",
+        "required": true,
+        "visible": true,
+        "rows": "",
+        "date": "yyyy/dd/mm"
+      },
+      "type": "DATE",
+      "id": "6deb44dd-4224-47d2-bc93-bd0121efb0cb"
+    }
+  ],
   "profiles": [
     {
       "Name": {

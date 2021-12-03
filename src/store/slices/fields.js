@@ -1,46 +1,31 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import { REACT_APP_API } from '../../constants';
+import { API_HOST } from '../../constants';
 
 const initialState = {
-	fields: [
-		{
-			type: 'NAME',
-			details: {
-				label: 'Name',
-				required: true,
-				visible: true,
-			},
-		},
-	],
+	fields: [],
 	selectedFieldId: '',
 };
-export const getFieldsAsync = createAsyncThunk(
-	'fields/get',
-	async (action, thunkApi) => {
-		const response = await axios.get(`${REACT_APP_API}/fields`);
-		return response.data;
-	}
-);
+export const getFieldsAsync = createAsyncThunk('fields/get', async () => {
+	const response = await axios.get(`${API_HOST}/fields`);
+	return response.data;
+});
 
-export const addFieldsAsync = createAsyncThunk(
-	'fields/post',
-	async (data, thunkApi) => {
-		const response = await axios.post(`${REACT_APP_API}/fields`, {
-			...data,
-			id: uuidv4(),
-		});
-		return response.data;
-	}
-);
+export const addFieldsAsync = createAsyncThunk('fields/post', async (data) => {
+	const response = await axios.post(`${API_HOST}/fields`, {
+		...data,
+		id: uuidv4(),
+	});
+	return response.data;
+});
 
 export const updateFieldAsync = createAsyncThunk(
 	'fields/patch',
 	async (data, thunkApi) => {
 		const state = thunkApi.getState();
 		const response = await axios.patch(
-			`${REACT_APP_API}/fields/${state.fields.selectedFieldId}`,
+			`${API_HOST}/fields/${state.fields.selectedFieldId}`,
 			data
 		);
 		return response.data;
@@ -49,8 +34,8 @@ export const updateFieldAsync = createAsyncThunk(
 
 export const deleteFieldAsync = createAsyncThunk(
 	'fields/delete',
-	async (id, thunkApi) => {
-		const response = await axios.delete(`${REACT_APP_API}/fields/${id}`);
+	async (id) => {
+		const response = await axios.delete(`${API_HOST}/fields/${id}`);
 		return { id, response };
 	}
 );

@@ -17,7 +17,7 @@ export default function TextBlock({
 					required,
 				})}
 				error={errors}
-				maxRows={rowsCount}
+				rows={rowsCount}
 				fullWidth
 			/>
 		</div>
