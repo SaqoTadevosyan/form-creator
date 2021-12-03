@@ -1,16 +1,14 @@
-1. Run JSON server with 
-    ```
-        json-server --watch db.json
-    ```
-2. run 
-    ```
-        yarn 
-    ```    
-3. add .env file,and write  JSON server endpoint    
-        ```
-        REACT_APP_API = http://localhost:3000
-        ```
-4. run app 
-        ```
-            yarn start
-        ```
+# Form Builder
+
+## Installation and setup
+
+- Clone the repository
+- Install dependencies via yarn or npm
+  - yarn
+  - npm start
+- Run JSON server
+  - yarn start:server
+  - npm run start:server
+- Run the app
+  - yarn start
+  - npm start
