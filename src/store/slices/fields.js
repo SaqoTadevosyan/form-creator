@@ -1,11 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import { API_HOST } from '../../constants';
+import { API_HOST, FIELD_ERROR_MESSAGE } from '../../constants';
 
 const initialState = {
-	fields: [],
+	data: [],
 	selectedFieldId: '',
+	successMessage: '',
+	errorMessage: '',
 };
 export const getFieldsAsync = createAsyncThunk('fields/get', async () => {
 	const response = await axios.get(`${API_HOST}/fields`);
@@ -53,21 +55,31 @@ export const fieldsSlice = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder.addCase(getFieldsAsync.fulfilled, (state, action) => {
-			state.fields = action.payload;
+			state.data = action.payload;
 		});
 		builder.addCase(addFieldsAsync.fulfilled, (state, action) => {
-			state.fields = [...state.fields, action.payload];
+			state.data = [...state.data, action.payload];
 		});
 		builder.addCase(updateFieldAsync.fulfilled, (state, action) => {
-			const index = state.fields.findIndex(
+			const index = state.data.findIndex(
 				(field) => field.id === action.payload.id
 			);
-			state.fields[index] = action.payload;
+			state.data[index] = action.payload;
 		});
 		builder.addCase(deleteFieldAsync.fulfilled, (state, action) => {
-			state.fields = state.fields.filter(
-				(field) => field.id !== action.payload.id
-			);
+			state.data = state.data.filter((field) => field.id !== action.payload.id);
+		});
+		builder.addCase(getFieldsAsync.rejected, (state) => {
+			state.errorMessage = FIELD_ERROR_MESSAGE;
+		});
+		builder.addCase(addFieldsAsync.rejected, (state) => {
+			state.errorMessage = FIELD_ERROR_MESSAGE;
+		});
+		builder.addCase(updateFieldAsync.rejected, (state) => {
+			state.errorMessage = FIELD_ERROR_MESSAGE;
+		});
+		builder.addCase(deleteFieldAsync.rejected, (state) => {
+			state.errorMessage = FIELD_ERROR_MESSAGE;
 		});
 	},
 });
@@ -75,12 +87,11 @@ export const { setSelectedFieldId, deleteSelectedFieldId } =
 	fieldsSlice.actions;
 
 //Selectors
-export const getFields = (state) => state.fields.fields;
+export const getFields = (state) => state.fields.data;
 export const getVisibleFields = (state) =>
-	state.fields.fields.filter((field) => field.details.visible);
+	state.fields.data.filter((field) => field.details.visible);
 export const getSelectedField = (state) =>
-	state.fields.fields.find(
-		(field) => field.id === state.fields.selectedFieldId
-	);
-
+	state.fields.data.find((field) => field.id === state.fields.selectedFieldId);
+export const getFieldsSuccessMessage = (state) => state.fields.successMessage;
+export const getFieldsErrorMessage = (state) => state.fields.errorMessage;
 export default fieldsSlice.reducer;

@@ -2,17 +2,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import {
-	FIELD_ERROR_MESSAGE,
 	PROFILE_ERROR_MESSAGE,
 	PROFILE_SUCCESS_MESSAGE,
 	API_HOST,
 } from '../../constants';
-import {
-	addFieldsAsync,
-	deleteFieldAsync,
-	getFieldsAsync,
-	updateFieldAsync,
-} from './fields';
 
 const initialState = {
 	profiles: [],
@@ -52,18 +45,6 @@ export const profilesSlice = createSlice({
 		});
 		builder.addCase(addProfileAsync.rejected, (state) => {
 			state.errorMessage = PROFILE_ERROR_MESSAGE;
-		});
-		builder.addCase(getFieldsAsync.rejected, (state) => {
-			state.errorMessage = FIELD_ERROR_MESSAGE;
-		});
-		builder.addCase(addFieldsAsync.rejected, (state) => {
-			state.errorMessage = FIELD_ERROR_MESSAGE;
-		});
-		builder.addCase(updateFieldAsync.rejected, (state) => {
-			state.errorMessage = FIELD_ERROR_MESSAGE;
-		});
-		builder.addCase(deleteFieldAsync.rejected, (state) => {
-			state.errorMessage = FIELD_ERROR_MESSAGE;
 		});
 	},
 });

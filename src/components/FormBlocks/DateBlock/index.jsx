@@ -19,6 +19,7 @@ export default function DateBlock({
 		register(title, {
 			required,
 		});
+		setValue(title, selectedDate);
 	}, []);
 
 	const handleDateChange = (e) => {

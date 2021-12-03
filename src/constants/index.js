@@ -9,4 +9,4 @@ export const PROFILE_SUCCESS_MESSAGE = 'Your profile created!';
 export const PROFILE_ERROR_MESSAGE = 'Something went wrong';
 export const FIELD_ERROR_MESSAGE = 'Something went wrong';
 
-export const API_HOST = process.env.REACT_API_HOST;
+export const API_HOST = process.env.REACT_APP_API;

@@ -2,24 +2,24 @@
   "fields": [
     {
       "details": {
-        "label": "text",
-        "required": true,
-        "visible": true,
-        "rows": "2"
-      },
-      "type": "TEXT",
-      "id": "4605b5bc-76e3-47e4-bded-43bd0e81734d"
-    },
-    {
-      "details": {
         "label": "DOB",
         "required": true,
         "visible": true,
         "rows": "",
-        "date": "yyyy/dd/mm"
+        "date": "yyyy/dd/MM"
       },
       "type": "DATE",
-      "id": "6deb44dd-4224-47d2-bc93-bd0121efb0cb"
+      "id": "719ca463-96ce-41c5-b5ba-ef94ffc5c061"
+    },
+    {
+      "details": {
+        "label": "fcbcb",
+        "required": true,
+        "visible": true,
+        "rows": ""
+      },
+      "type": "LINK",
+      "id": "390c0267-59c2-4272-8f35-282a08d46af6"
     }
   ],
   "profiles": [
@@ -38,6 +38,28 @@
         "lastName": ""
       },
       "id": "d6b134d9-a8e5-4891-9b75-1fa2e5349aa3"
+    },
+    {
+      "text": "sefsefsef",
+      "DOB": "2021-12-04T19:36:50.000Z",
+      "id": "ea5bc5d3-7c31-45e7-8272-a8f744fe8430"
+    },
+    {
+      "text": "e4t",
+      "DOB": "2021-12-03T19:38:53.085Z",
+      "id": "20880f3d-ddc3-4ee0-b44d-3fc88981baa9"
+    },
+    {
+      "text": "esfesef",
+      "DOB": "2021-12-03T19:40:24.679Z",
+      "id": "715456be-76da-4ef3-b67f-f41731e70479"
+    },
+    {
+      "DOB": "2021-12-03T19:58:01.241Z",
+      "id": "16093bfd-6506-417a-8dee-22c4b3ec19dc"
+    },
+    {
+      "id": "cb659769-5a5d-4ff7-bc52-c4aaaf8d4dfb"
     }
   ]
 }
